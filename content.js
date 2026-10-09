@@ -1,6 +1,6 @@
 // Update your portfolio here. Leave a URL blank until you have a real link.
 const portfolio = {
-  brand: "PDK.",
+  brand: "PDK",
   name: "Pydi Dileep Kumar",
   title: "Java Backend Engineer",
   role: "Java Backend Engineer / 3+ years experience",

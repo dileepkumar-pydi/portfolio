@@ -9,6 +9,7 @@
   --connector: #465247;
   --accent-soft: #352920;
   --on-accent: #211a15;
+  --header-height: 84px;
   color-scheme: dark;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
@@ -28,7 +29,7 @@ h1, h2, h3 { font-weight: 500; line-height: 1.12; }
 nav { display: flex; gap: 30px; font-size: 12px; color: var(--muted); }
 nav a { display: inline-flex; align-items: center; min-height: 44px; }
 nav a[aria-current] { color: var(--accent); }
-.hero { display: grid; grid-template-columns: 1.65fr 1fr; gap: 64px; align-items: center; padding: 84px 0 72px; }
+.hero { display: grid; grid-template-columns: 1.65fr 1fr; gap: 64px; align-items: center; min-height: calc(100svh - var(--header-height)); padding: 84px 0 72px; }
 .hero > div:first-child { min-width: 0; }
 .name { font-size: 17px; font-weight: 500; margin-bottom: 5px; }
 .eyebrow { color: var(--accent); font: 10px/1.6 var(--mono); letter-spacing: .6px; text-transform: uppercase; }
@@ -125,7 +126,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .job-heading { flex-direction: column; gap: 3px; }
 }
 @media (max-width: 760px) {
-  html { scroll-padding-top: 112px; }
+  html { --header-height: 100px; scroll-padding-top: 112px; }
   .page { padding-inline: 24px; }
   .header { min-height: 100px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 6px; }
   .brand { font-size: 21px; }
