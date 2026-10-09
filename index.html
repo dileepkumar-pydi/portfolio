@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pydi Dileep Kumar — Java Backend Engineer. Reliable services, REST APIs, and event-driven systems.">
+    <meta name="theme-color" content="#141917">
+    <title>Pydi Dileep Kumar | Backend Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23141917'/%3E%3Ctext x='9' y='43' font-family='Arial' font-weight='bold' font-size='32' fill='%23e5a182'%3EP.%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script src="content.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="motion.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="#" aria-label="Back to top">PDK.</a>
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="headline">
+          <div>
+            <p class="name" id="name"></p>
+            <p class="eyebrow" id="role"></p>
+            <h1 id="headline"></h1>
+            <p class="intro" id="intro"></p>
+            <div class="actions">
+              <a class="button primary" href="#projects">View Projects <span aria-hidden="true">↘</span></a>
+              <a class="button" href="#contact">Contact Me <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero-stack" id="hero-stack" aria-label="Core technologies"></div>
+          </div>
+          <div class="topology" aria-label="Service topology: REST API requests enter Spring Boot, which connects to PostgreSQL, AWS SQS, and a payment gateway.">
+            <div class="topology-label"><span>Service topology</span><span class="diagram-status">Request flow</span></div>
+            <div class="diagram" aria-hidden="true">
+              <div class="node request"><svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/></svg>REST API<small>request</small></div>
+              <div class="node service"><img class="node-icon" src="./assets/icons/spring.svg" width="22" height="22" alt="">Spring Boot<small>service</small></div>
+              <div class="branches"><div class="node"><img class="node-icon" src="./assets/icons/postgresql.svg" width="22" height="22" alt="">PostgreSQL<small>data</small></div><div class="node"><img class="node-icon" src="./assets/icons/aws.svg" width="22" height="22" alt="">AWS SQS<small>events</small></div><div class="node"><svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg>Payment gateway<small>payments</small></div></div>
+            </div>
+            <p class="diagram-caption">Request → service → data, events & payments</p>
+          </div>
+        </section>
+        <section class="impact" aria-label="Impact in production">
+          <p class="eyebrow">02 / Impact in production</p>
+          <div class="stats" id="stats"></div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="section-heading">
+            <p class="eyebrow">03 /</p>
+            <h2>Selected<br class="desktop-break"> projects</h2>
+          </div>
+          <div id="project-list"></div>
+        </section>
+
+        <section class="section" id="experience">
+          <div class="section-heading">
+            <p class="eyebrow">04 /</p>
+            <h2>Experience</h2>
+          </div>
+          <div id="experience-list"></div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="section-heading">
+            <p class="eyebrow">05 /</p>
+            <h2>The toolkit</h2>
+          </div>
+          <div class="toolkit" id="skill-list"></div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="section-heading">
+            <p class="eyebrow">06 /</p>
+            <h2>About &<br class="desktop-break"> contact</h2>
+          </div>
+          <div>
+            <h2 class="about-title"></h2>
+            <p class="about-copy" id="about-copy"></p>
+            <div id="contact">
+              <p class="eyebrow">Let's connect</p>
+              <p class="contact-intro" id="contact-intro"></p>
+              <div id="contact-list"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <span id="footer-name"></span>
+        <span class="footer-note"></span>
+        <a class="back-top" href="#" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></a>
+      </footer>
+    </div>
+  </body>
+</html>
