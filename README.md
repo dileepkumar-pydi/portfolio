@@ -1,46 +1,50 @@
-# PDK Portfolio
+# Dileep's portfolio
 
-My portfolio as a Java backend engineer, with projects, experience, and the tools I use. Built with HTML, CSS, and JavaScript.
+My Java backend portfolio, hosted at [dileepkumar-pydi.github.io/portfolio](https://dileepkumar-pydi.github.io/portfolio/).
+
+Built with static HTML, CSS and vanilla JavaScript. No install or build step. All career details and project descriptions are in the HTML, so the page also works without JavaScript.
 
 ## Run locally
 
-From this folder:
-
 ```sh
-python3 -m http.server 5173
+python3 -m http.server 8000
 ```
 
-Open [localhost:5173](http://localhost:5173). You can also open `index.html` directly in a browser. There's nothing to install or build.
+Open [localhost:8000](http://localhost:8000).
 
-## Update the content
+## Make changes
 
-Most changes go in `content.js`: your bio, projects, experience, skills, and links. Add or remove entries in the lists as needed.
+- `index.html`: text, links, project diagrams and SEO metadata. Edit the visible content directly. Keep the Person JSON-LD and social metadata in sync with your details.
+- `styles.css`: dark palette, layout and responsive styles.
+- `app.js`: active navigation state.
+- `motion.js`: scroll reveals, animated impact counters and service topology effects. The settings at the top control timing and replay. Reduced-motion preferences disable animations.
+- `assets/icons/`: local technology icons from [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0), with its license included.
+- `sitemap.xml` and `robots.txt`: discovery metadata for the GitHub Pages URL.
 
-- Add experience dates to `dates`. Blank dates stay hidden.
-- Use `mailto:you@example.com` for your email URL.
-- For a resume, add `resume.pdf` to this folder and set its URL to `./resume.pdf`.
-- Add a project's `url` to make its title clickable. Its `stack` list controls the technology tags.
-- Contact `text` is the label shown beside the link. Blank URLs remain placeholders.
+Project diagrams are conceptual; private project source, endpoints and internal infrastructure are not published here. Only the personal open-source library has a public project link.
 
-## Files
+## Before publishing
 
-| File | What it does |
-| --- | --- |
-| `content.js` | Portfolio content, icon mapping, and animation settings |
-| `index.html` | Page sections and service diagram |
-| `styles.css` | Dark theme, layout, and hover effects |
-| `app.js` | Renders the content and updates navigation |
-| `motion.js` | Scroll reveals and diagram animation |
-| `assets/icons/` | Local technology icons |
+- TODO: Add `assets/Pydi_Dileep_Kumar_Resume.pdf`. The Download Resume button already points to this file. Remove the visible resume TODO from `index.html` once the PDF is in place, and remove its `aria-describedby="resume-todo"` reference.
+- TODO: Add `assets/og-image.png` (recommended 1200 × 630). Social metadata already references the full GitHub Pages URL. Remove the matching TODO comment after adding it.
 
-Colors are at the top of `styles.css`. The mobile layout starts at `760px`.
+The resume link returns 404 until the PDF is added. Social image previews need the PNG. No phone number is published.
 
-Animations replay when you scroll away and return. In `content.js`, set `motion.replay` to `false` to play them once, or `motion.enabled` to `false` to turn off scroll and diagram animations. `duration` and `stagger` are in milliseconds. Reduced-motion preferences are respected.
+## Check changes
 
-## Deploy
+```sh
+curl -s http://localhost:8000/ | grep -i 'Spring Boot'
+npx html-validate index.html
+npx lighthouse http://localhost:8000 --only-categories=performance,accessibility,seo,best-practices
+```
 
-Upload the HTML, CSS, JavaScript files, and `assets` folder to a static host. Include your resume if you've added one. Leave the build command empty and use the repository root as the publish directory.
+These are optional development tools, not site dependencies. The site has no third-party scripts or trackers.
 
-Fill in your contact links and check the project details before publishing.
+## Publish with GitHub Pages
 
-Technology icons come from [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0). The license is included in `assets/icons/LICENSE`.
+1. Commit your changes and push the `portfolio-upgrade` branch.
+2. Review and merge it into `main`.
+3. In **Settings → Pages**, use **Deploy from a branch**, `main`, and `/(root)`.
+4. Wait for the Pages deployment to finish, then open the live URL above. Keep HTTPS enforced.
+
+Keep `robots.txt` in the repository for Pages to serve under `/portfolio/robots.txt`. Crawlers normally look for robots rules at the domain root; if you maintain `dileepkumar-pydi.github.io`, add the sitemap URL to its root `robots.txt` too.
