@@ -192,3 +192,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: 2px; backg
   .motion-enabled .reveal-pending { opacity: 1; transform: none; }
   .signal { display: none; }
 }
+
+/* Resume entry points share the portfolio's button styles. */
+.last-updated { color: var(--muted); font-size: 12px; margin-top: 10px; }
+.resume-actions .last-updated { flex-basis: 100%; margin-top: 0; }
+.resume-download-button { border-color: var(--line); }
+@media (max-width: 599px) {
+  .header nav { flex-wrap: wrap; justify-content: flex-start; column-gap: 20px; row-gap: 0; }
+  .header { min-height: 144px; }
+  html { scroll-padding-top: 168px; }
+}

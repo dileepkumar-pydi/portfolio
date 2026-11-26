@@ -1,0 +1,46 @@
+/* The palette, fonts, buttons and focus rings come from ../styles.css. */
+html { scroll-padding-top: 188px; }
+.resume-page { --resume-toolbar-height: 172px; }
+.resume-toolbar { position: sticky; top: 0; z-index: 5; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-block: 14px; border-bottom: 1px solid var(--line); background: #141917fa; }
+.resume-tools { display: flex; flex-wrap: wrap; gap: 10px; }
+.last-updated { width: 100%; color: var(--muted); font-size: 12px; }
+.resume-intro { padding-block: 32px 24px; }
+.resume-title { font-size: clamp(2.5rem, 6vw, 4rem); margin-block: 12px; letter-spacing: -.04em; }
+.resume-intro > p:not(.eyebrow) { color: var(--muted); }
+.resume-intro .text-link { margin-top: 4px; }
+.resume-viewer object { display: block; width: 100%; height: 70svh; min-height: 480px; border: 1px solid var(--connector); border-radius: 8px; background: var(--surface); }
+.resume-viewer object:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.pdf-fallback { padding: 24px; }
+.pdf-fallback p { margin-top: 16px; color: var(--muted); }
+.pdf-fallback h2 { font-size: 26px; }
+.viewer-help { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.viewer-help a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.resume-text { max-width: 900px; margin: 48px auto 0; }
+.resume-text-heading { padding-bottom: 28px; }
+.resume-text-heading h2 { margin-block: 16px; }
+.resume-text-heading p:not(.eyebrow) { color: var(--muted); margin-top: 8px; }
+.resume-text section { padding-block: 28px; border-top: 1px solid var(--line); }
+.resume-text section h2 { margin-bottom: 20px; font-size: 26px; }
+.resume-text section h3 { margin-top: 28px; font-size: 20px; line-height: 1.35; }
+.resume-text section p, .resume-text li { color: var(--muted); }
+.resume-text strong { color: var(--ink); font-weight: 500; }
+.resume-text ul { padding-left: 20px; margin-block: 16px 0; }
+.resume-text li { margin-top: 12px; }
+.resume-text li::marker { color: var(--accent); }
+.resume-dates { margin-top: 8px; font-size: 14px; }
+.resume-page footer { margin-top: 32px; border-top: 1px solid var(--line); }
+@media (min-width: 600px) {
+  html { scroll-padding-top: 132px; }
+  .resume-page { --resume-toolbar-height: 110px; }
+  .resume-toolbar { flex-direction: row; justify-content: space-between; align-items: center; }
+  .resume-tools { justify-content: flex-end; }
+  .last-updated { text-align: right; }
+  .resume-viewer object { height: calc(100svh - var(--resume-toolbar-height) - 32px); min-height: 560px; }
+}
+@media print {
+  .resume-toolbar, .resume-intro, .resume-viewer, .skip-link, footer { display: none; }
+  .resume-text { margin: 0; max-width: none; }
+  .resume-page { background: white; color: black; }
+  .resume-text :is(p, li, strong, .eyebrow) { color: black; }
+  .resume-text section { break-inside: avoid; }
+}

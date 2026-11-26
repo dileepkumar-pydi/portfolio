@@ -51,3 +51,11 @@ These are optional development tools, not site dependencies. The site has no thi
 4. Wait for the Pages deployment to finish, then open the live URL above. Keep HTTPS enforced.
 
 Keep `robots.txt` in the repository for Pages to serve under `/portfolio/robots.txt`. Crawlers normally look for robots rules at the domain root; if you maintain `dileepkumar-pydi.github.io`, add the sitemap URL to its root `robots.txt` too.
+
+## Resume page
+
+`resume/index.html` embeds the supplied PDF and contains a plain HTML version of its content. Edit that page when you replace the PDF. Its styles are in `resume/resume.css`, with the shared theme loaded from `styles.css`.
+
+Preview it at `/resume/` while serving the repository root. Navigation, downloads, the stylesheet and image paths are relative so the page also works under `/portfolio/resume/`. Navigation and asset paths are relative. The canonical uses the full public URL because Lighthouse requires an absolute canonical for its SEO check. OG asset paths remain relative as requested; some social preview clients may require an absolute OG image URL.
+
+The toolbar and portfolio buttons show the editorial update date, November 2026. Update that note when the resume changes. The PDF's phone number is not repeated in the HTML text version.
