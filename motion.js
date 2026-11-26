@@ -1,101 +1,22 @@
-// Animation settings only; all portfolio content lives in index.html.
-const motion = { enabled: true, replay: true, duration: 650, stagger: 60 };
+// Every effect completes in under 400ms. Text is always supplied by the HTML.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const root = document.documentElement;
 
-if (motion?.enabled && !reducedMotion.matches && "IntersectionObserver" in window) {
-  const root = document.documentElement;
-  root.style.setProperty("--reveal-duration", `${motion.duration}ms`);
-  root.classList.add("motion-enabled");
-
-
-  const observer = new IntersectionObserver((entries) => {
-    for (const { target, isIntersecting, intersectionRatio } of entries) {
-      if (isIntersecting && intersectionRatio >= 0.05) {
-        target.classList.remove("reveal-pending");
-        target.classList.add("is-visible");
-        // The sticky header stays visible; other elements can replay.
-        if (target.matches(".header") || motion.replay === false) observer.unobserve(target);
-      } else if (!isIntersecting) {
-        // Reset only after fully leaving view, avoiding flicker at the edge.
-        target.classList.remove("is-visible");
-        target.classList.add("reveal-pending");
-      }
-    }
-  }, { threshold: [0, 0.05] });
-
-  const revealGroups = [
-    ".topology",
-    ".impact > .eyebrow",
-    ".stat",
-    ".section-heading",
-    ".project",
-    ".job",
-    ".toolkit > div",
-    ".about-title, .about-copy, #contact > .eyebrow, .contact-intro",
-    ".contact-row",
-    "footer",
-  ];
-
-  for (const selector of revealGroups) {
-    document.querySelectorAll(selector).forEach((element, index) => {
-      element.style.setProperty("--reveal-delay", `${Math.min(index, 3) * motion.stagger}ms`);
-      element.classList.add("reveal-pending");
-      observer.observe(element);
-    });
-  }
-
-  const signal = document.createElement("span");
-  signal.className = "signal";
-  signal.setAttribute("aria-hidden", "true");
-  document.querySelector(".diagram").append(signal);
-
-  const topology = document.querySelector(".topology");
-  const flowObserver = new IntersectionObserver(([entry]) => {
-    topology.classList.toggle("flow-active", entry.isIntersecting);
-  });
-  flowObserver.observe(topology);
-
-  const updateSignal = () => {
-    const request = document.querySelector(".request");
-    const service = document.querySelector(".service");
-    const start = request.offsetTop + request.offsetHeight + 3;
-    signal.style.setProperty("--signal-top", `${start}px`);
-    signal.style.setProperty("--signal-second", `${service.offsetTop + service.offsetHeight + 3 - start}px`);
-    signal.style.setProperty("--signal-end", `${service.offsetTop + service.offsetHeight + 35 - start}px`);
-  };
-  const signalObserver = "ResizeObserver" in window ? new ResizeObserver(updateSignal) : null;
-  signalObserver?.observe(document.querySelector(".diagram"));
-  window.addEventListener("resize", updateSignal);
-  updateSignal();
-
-  let frame;
-  const updateProgress = () => {
-    const distance = root.scrollHeight - innerHeight;
-    root.style.setProperty("--scroll-progress", distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0);
-    frame = null;
-  };
-  const scheduleProgress = () => { if (!frame) frame = requestAnimationFrame(updateProgress); };
-  window.addEventListener("scroll", scheduleProgress, { passive: true });
-  window.addEventListener("resize", scheduleProgress);
-  updateProgress();
-
-  // Switching the OS preference during a visit also stops every effect.
-  reducedMotion.addEventListener("change", ({ matches }) => {
-    if (!matches) return;
-    observer.disconnect();
-    flowObserver.disconnect();
-    signalObserver?.disconnect();
-    window.removeEventListener("resize", updateSignal);
-    root.classList.remove("motion-enabled");
-    document.querySelectorAll(".reveal-pending").forEach((element) => element.classList.remove("reveal-pending"));
-    window.removeEventListener("scroll", scheduleProgress);
-    window.removeEventListener("resize", scheduleProgress);
-    cancelAnimationFrame(frame);
-  });
-}
-
-// The complete value remains available to assistive tech and without JavaScript.
 if (!reducedMotion.matches && "IntersectionObserver" in window) {
+  root.classList.add("motion-enabled");
+  const reveal = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      target.classList.toggle("reveal-pending", !isIntersecting);
+      target.classList.toggle("is-visible", isIntersecting);
+    }
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll(".stat, .section-heading, .project, .job, .toolkit > div, .about-copy, footer").forEach((element) => {
+    if (element.getBoundingClientRect().top >= innerHeight) element.classList.add("reveal-pending");
+    reveal.observe(element);
+  });
+
+  // Keep the final number accessible while its decorative copy counts up.
   const activeCounters = new Map();
   const counters = new IntersectionObserver((entries) => {
     for (const { target, isIntersecting } of entries) {
@@ -104,7 +25,7 @@ if (!reducedMotion.matches && "IntersectionObserver" in window) {
       const value = Number(target.dataset.count);
       const start = performance.now();
       const tick = (now) => {
-        const progress = reducedMotion.matches ? 1 : Math.min((now - start) / 800, 1);
+        const progress = Math.min((now - start) / 320, 1);
         target.textContent = Math.round(value * (1 - (1 - progress) ** 3));
         if (progress < 1) activeCounters.set(target, requestAnimationFrame(tick));
         else activeCounters.delete(target);
@@ -113,9 +34,76 @@ if (!reducedMotion.matches && "IntersectionObserver" in window) {
     }
   }, { threshold: 0.5 });
   document.querySelectorAll("[data-count]").forEach((counter) => counters.observe(counter));
+
+  // Short hops, separated by quiet pauses, follow the existing topology branches.
+  const topology = document.querySelector(".topology");
+  const diagram = topology.querySelector(".diagram");
+  const nodes = [...diagram.querySelectorAll(".node")];
+  const signal = document.createElement("span");
+  signal.className = "signal";
+  signal.setAttribute("aria-hidden", "true");
+  diagram.append(signal);
+  let flowTimer;
+  let hopAnimation;
+  let visible = false;
+  let stopped = false;
+
+  function stopFlow() {
+    clearTimeout(flowTimer);
+    hopAnimation?.cancel();
+    nodes.forEach((node) => node.classList.remove("is-active"));
+  }
+
+  function hop(from, to) {
+    const diagramBox = diagram.getBoundingClientRect();
+    const start = from.getBoundingClientRect();
+    const end = to.getBoundingClientRect();
+    signal.style.left = `${start.left + start.width / 2 - diagramBox.left - 2}px`;
+    signal.style.top = `${start.bottom - diagramBox.top}px`;
+    hopAnimation = signal.animate([
+      { transform: "translate(0, 0)", opacity: 0 },
+      { opacity: 1, offset: 0.2 },
+      { transform: `translate(${end.left + end.width / 2 - start.left - start.width / 2}px, ${end.top - start.bottom}px)`, opacity: 0 },
+    ], { duration: 280, easing: "ease-out" });
+  }
+
+  function startFlow() {
+    stopFlow();
+    if (stopped || !visible || document.hidden) return;
+    let step = 0;
+    const next = () => {
+      nodes.forEach((node) => node.classList.remove("is-active"));
+      const node = nodes[step];
+      node.classList.add("is-active");
+      if (step === 1) hop(nodes[0], node);
+      if (step > 1) hop(nodes[1], node);
+      step += 1;
+      if (step < nodes.length) flowTimer = setTimeout(next, 600);
+      else flowTimer = setTimeout(() => {
+        stopFlow();
+        flowTimer = setTimeout(startFlow, 1400);
+      }, 600);
+    };
+    next();
+  }
+
+  const flow = new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    startFlow();
+  });
+  flow.observe(topology);
+  document.addEventListener("visibilitychange", startFlow);
+
   reducedMotion.addEventListener("change", ({ matches }) => {
     if (!matches) return;
+    stopped = true;
+    stopFlow();
+    flow.disconnect();
+    reveal.disconnect();
     counters.disconnect();
+    document.removeEventListener("visibilitychange", startFlow);
+    root.classList.remove("motion-enabled");
+    document.querySelectorAll(".reveal-pending").forEach((element) => element.classList.remove("reveal-pending"));
     for (const [target, frame] of activeCounters) {
       cancelAnimationFrame(frame);
       target.textContent = target.dataset.count;

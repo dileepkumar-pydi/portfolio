@@ -27,6 +27,8 @@
     <meta
       property="og:image:alt"
       content="Pydi Dileep Kumar — Java Backend Engineer">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta
       name="twitter:title"
@@ -40,9 +42,8 @@
     <meta
       name="twitter:image:alt"
       content="Pydi Dileep Kumar — Java Backend Engineer">
-    <!-- TODO: Add assets/og-image.png (recommended 1200 × 630) for social previews. -->
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -51,6 +52,7 @@
         "jobTitle": "Java Backend Engineer",
         "url": "https://dileepkumar-pydi.github.io/portfolio/",
         "email": "dileepkumarpydi2610@gmail.com",
+        "image": "https://dileepkumar-pydi.github.io/portfolio/assets/og-image.png",
         "sameAs": [
           "https://www.linkedin.com/in/dileep-kumar-pydi-b41965239",
           "https://github.com/dileepkumar-pydi"
@@ -59,8 +61,8 @@
         "knowsLanguage": ["English", "Telugu", "Hindi"]
       }
     </script>
-    <script src="app.js" defer></script>
-    <script src="motion.js" defer></script>
+    <script src="app.js?v=4" defer></script>
+    <script src="motion.js?v=4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -96,13 +98,11 @@
                 class="button"
                 href="./assets/Pydi_Dileep_Kumar_Resume.pdf"
                 download
-                aria-describedby="resume-todo"
               >
                 Download Resume
               </a>
               <a class="button" href="#contact">Contact</a>
             </div>
-            <p class="todo" id="resume-todo">TODO: Resume PDF to be added.</p>
             <div class="hero-stack" role="group" aria-label="Core technologies">
               <span>
                 <img
@@ -221,51 +221,117 @@
           <h2 class="eyebrow" id="impact-heading">Impact in production</h2>
           <div class="stats">
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16" />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">100+</span>
                 <span aria-hidden="true">
                   <span data-count="100">100</span>
                   +
                 </span>
               </p>
-              <span>production REST APIs</span>
+              <h3>Production REST APIs</h3>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 10 5-10 5L2 8l10-5Zm-10 9 10 5 10-5M2 16l10 5 10-5"
+                />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">15+</span>
                 <span aria-hidden="true">
                   <span data-count="15">15</span>
                   +
                 </span>
               </p>
-              <span>Spring Boot microservices</span>
+              <h3>Spring Boot microservices</h3>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="3" width="16" height="18" rx="2" />
+                <path d="M8 8h8M8 12h8M8 16h4" />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">100+</span>
                 <span aria-hidden="true">
                   <span data-count="100">100</span>
                   +
                 </span>
               </p>
-              <span>loans/month processed</span>
+              <h3>Loans processed / month</h3>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <ellipse cx="12" cy="5" rx="8" ry="3" />
+                <path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">~Rs 1L/month</span>
                 <span aria-hidden="true">
                   ~Rs
-                  <span data-count="1">1</span>
-                  L/month
+                  <span data-count="1">1</span>L
                 </span>
               </p>
-              <span>
-                saved by decommissioning a redundant PostgreSQL DB. Zero data
-                loss; ~2.5s lower API latency.
-              </span>
+              <h3>Saved / month</h3>
+              <p class="stat-note">
+                Redundant PostgreSQL DB decommissioned. Zero data loss; ~2.5s
+                lower API latency.
+              </p>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 10v9M3 8l9 5 9-5M8 5l9 5"
+                />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">~40%</span>
                 <span aria-hidden="true">
                   ~
@@ -273,25 +339,49 @@
                   %
                 </span>
               </p>
-              <span>
-                less deployment overhead; 3 apps + 10+ microservices
-                consolidated.
-              </span>
+              <h3>Less deployment overhead</h3>
+              <p class="stat-note">3 apps + 10+ microservices consolidated.</p>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6" />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">100 MB</span>
                 <span aria-hidden="true">
                   <span data-count="100">100</span>
                   MB
                 </span>
               </p>
-              <span>
-                file upload capacity, increased from 20 MB via AWS SQS + Lambda
-              </span>
+              <h3>Upload capacity</h3>
+              <p class="stat-note">
+                Increased from 20 MB via AWS SQS + Lambda.
+              </p>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="13" r="8" />
+                <path d="M12 9v4l3 2M9 2h6M12 2v3" />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">~3s</span>
                 <span aria-hidden="true">
                   ~
@@ -299,17 +389,31 @@
                   s
                 </span>
               </p>
-              <span>lower processing latency</span>
+              <h3>Lower processing latency</h3>
             </div>
             <div class="stat">
-              <p>
+              <svg
+                class="stat-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 7v5h-5M4 17v-5h5M5 8a8 8 0 0 1 13-3l2 2M4 17l2 2a8 8 0 0 0 13-3"
+                />
+              </svg>
+              <p class="stat-value">
                 <span class="sr-only">300+</span>
                 <span aria-hidden="true">
                   <span data-count="300">300</span>
                   +
                 </span>
               </p>
-              <span>users with automated renewals</span>
+              <h3>Users with automated renewals</h3>
             </div>
           </div>
         </section>
@@ -346,88 +450,91 @@
                   I designed and built the loan lifecycle and the database
                   schema for the whole platform, processing 100+ loans/month.
                 </p>
-                <dl>
-                  <dt>Problem</dt>
-                  <dd>
-                    Disbursal, EMI scheduling, repayments and closure needed to
-                    account for changing payment behaviour.
-                  </dd>
-                  <dt>What I built</dt>
-                  <dd>
-                    A dynamic EMI engine for early, partial, late and excess
-                    payments, with automatic interest recalculation.
-                  </dd>
-                  <dt>Stack</dt>
-                  <dd>
-                    <div class="project-stack">
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/java.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Java
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/spring.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Spring Boot
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/postgresql.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        PostgreSQL
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/aws.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        AWS SQS
-                      </span>
-                    </div>
-                  </dd>
-                  <dt>Result</dt>
-                  <dd>100+ loans/month processed across the loan lifecycle.</dd>
-                </dl>
-                <figure class="architecture">
-                  <svg
-                    viewBox="0 0 440 68"
-                    role="img"
-                    aria-labelledby="lending-diagram"
-                  >
-                    <title id="lending-diagram">
-                      Loan requests pass through the EMI engine to loan data.
-                    </title>
-                    <rect x="5" y="8" width="130" height="52" rx="4" />
-                    <text x="70" y="39">Loan request</text>
-                    <path d="M135 34h20m-5-4 5 4-5 4" />
-                    <rect x="155" y="8" width="130" height="52" rx="4" />
-                    <text x="220" y="39">EMI engine</text>
-                    <path d="M285 34h20m-5-4 5 4-5 4" />
-                    <rect x="305" y="8" width="130" height="52" rx="4" />
-                    <text x="370" y="39">PostgreSQL</text>
-                  </svg>
-                  <figcaption>
-                    Conceptual flow · Loan requests pass through the EMI engine
-                    to loan data.
-                  </figcaption>
-                </figure>
+                <div class="project-stack">
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/java.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Java
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/spring.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Spring Boot
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/postgresql.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    PostgreSQL
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/aws.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    AWS SQS
+                  </span>
+                </div>
+                <details class="case-details">
+                  <summary>Read case study</summary>
+                  <dl>
+                    <dt>Problem</dt>
+                    <dd>
+                      Disbursal, EMI scheduling, repayments and closure needed
+                      to account for changing payment behaviour.
+                    </dd>
+                    <dt>What I built</dt>
+                    <dd>
+                      A dynamic EMI engine for early, partial, late and excess
+                      payments, with automatic interest recalculation.
+                    </dd>
+
+                    <dt>Result</dt>
+                    <dd>
+                      100+ loans/month processed across the loan lifecycle.
+                    </dd>
+                  </dl>
+                  <figure class="architecture">
+                    <svg
+                      viewBox="0 0 440 68"
+                      role="img"
+                      aria-labelledby="lending-diagram"
+                    >
+                      <title id="lending-diagram">
+                        Loan requests pass through the EMI engine to loan data.
+                      </title>
+                      <rect x="5" y="8" width="130" height="52" rx="4" />
+                      <text x="70" y="39">Loan request</text>
+                      <path d="M135 34h20m-5-4 5 4-5 4" />
+                      <rect x="155" y="8" width="130" height="52" rx="4" />
+                      <text x="220" y="39">EMI engine</text>
+                      <path d="M285 34h20m-5-4 5 4-5 4" />
+                      <rect x="305" y="8" width="130" height="52" rx="4" />
+                      <text x="370" y="39">PostgreSQL</text>
+                    </svg>
+                    <figcaption>
+                      Conceptual flow · Loan requests pass through the EMI
+                      engine to loan data.
+                    </figcaption>
+                  </figure>
+                </details>
               </div>
             </article>
             <article class="project" aria-labelledby="payments-title">
@@ -445,55 +552,56 @@
                   I designed and built payment and banking integrations and
                   migrated platform authentication from client ID/secret to JWT.
                 </p>
-                <dl>
-                  <dt>Problem</dt>
-                  <dd>
-                    Payment, banking, KYC and e-sign workflows needed
-                    integrations and callback handling.
-                  </dd>
-                  <dt>What I built</dt>
-                  <dd>
-                    PhonePe v1/v2, Razorpay, Axis Bank eNACH, payouts,
-                    collections, Signzy KYC and SignDesk e-sign integrations;
-                    webhooks/callbacks over TLS, plus cookie-based JWT tokens
-                    for web.
-                  </dd>
-                  <dt>Stack</dt>
-                  <dd>
-                    <div class="project-stack">
-                      <span>JWT</span>
-                      <span>TLS</span>
-                    </div>
-                  </dd>
-                  <dt>Result</dt>
-                  <dd>
-                    Integrated payment and verification workflows, with JWT
-                    authentication replacing client ID/secret authentication.
-                  </dd>
-                </dl>
-                <figure class="architecture">
-                  <svg
-                    viewBox="0 0 440 68"
-                    role="img"
-                    aria-labelledby="payments-diagram"
-                  >
-                    <title id="payments-diagram">
-                      The platform calls a provider and handles its callback.
-                    </title>
-                    <rect x="5" y="8" width="130" height="52" rx="4" />
-                    <text x="70" y="39">Platform</text>
-                    <path d="M135 34h20m-5-4 5 4-5 4" />
-                    <rect x="155" y="8" width="130" height="52" rx="4" />
-                    <text x="220" y="39">Provider</text>
-                    <path d="M285 34h20m-5-4 5 4-5 4" />
-                    <rect x="305" y="8" width="130" height="52" rx="4" />
-                    <text x="370" y="39">Callback</text>
-                  </svg>
-                  <figcaption>
-                    Conceptual flow · The platform calls a provider and handles
-                    its callback.
-                  </figcaption>
-                </figure>
+                <div class="project-stack">
+                  <span>JWT</span>
+                  <span>TLS</span>
+                </div>
+                <details class="case-details">
+                  <summary>Read case study</summary>
+                  <dl>
+                    <dt>Problem</dt>
+                    <dd>
+                      Payment, banking, KYC and e-sign workflows needed
+                      integrations and callback handling.
+                    </dd>
+                    <dt>What I built</dt>
+                    <dd>
+                      PhonePe v1/v2, Razorpay, Axis Bank eNACH, payouts,
+                      collections, Signzy KYC and SignDesk e-sign integrations;
+                      webhooks/callbacks over TLS, plus cookie-based JWT tokens
+                      for web.
+                    </dd>
+
+                    <dt>Result</dt>
+                    <dd>
+                      Integrated payment and verification workflows, with JWT
+                      authentication replacing client ID/secret authentication.
+                    </dd>
+                  </dl>
+                  <figure class="architecture">
+                    <svg
+                      viewBox="0 0 440 68"
+                      role="img"
+                      aria-labelledby="payments-diagram"
+                    >
+                      <title id="payments-diagram">
+                        The platform calls a provider and handles its callback.
+                      </title>
+                      <rect x="5" y="8" width="130" height="52" rx="4" />
+                      <text x="70" y="39">Platform</text>
+                      <path d="M135 34h20m-5-4 5 4-5 4" />
+                      <rect x="155" y="8" width="130" height="52" rx="4" />
+                      <text x="220" y="39">Provider</text>
+                      <path d="M285 34h20m-5-4 5 4-5 4" />
+                      <rect x="305" y="8" width="130" height="52" rx="4" />
+                      <text x="370" y="39">Callback</text>
+                    </svg>
+                    <figcaption>
+                      Conceptual flow · The platform calls a provider and
+                      handles its callback.
+                    </figcaption>
+                  </figure>
+                </details>
               </div>
             </article>
             <article class="project" aria-labelledby="billing-title">
@@ -511,79 +619,80 @@
                   I designed and built the system from scratch: 30+ REST APIs
                   and automated renewals for 300+ users.
                 </p>
-                <dl>
-                  <dt>Problem</dt>
-                  <dd>
-                    Invoicing, payments, ledger, reporting, subscriptions and
-                    notifications needed a billing backend.
-                  </dd>
-                  <dt>What I built</dt>
-                  <dd>
-                    REST APIs covering billing and transaction workflows,
-                    including subscription renewals.
-                  </dd>
-                  <dt>Stack</dt>
-                  <dd>
-                    <div class="project-stack">
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/java.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Java
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/spring.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Spring Boot
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/postgresql.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        PostgreSQL
-                      </span>
-                    </div>
-                  </dd>
-                  <dt>Result</dt>
-                  <dd>30+ REST APIs; renewals automated for 300+ users.</dd>
-                </dl>
-                <figure class="architecture">
-                  <svg
-                    viewBox="0 0 440 68"
-                    role="img"
-                    aria-labelledby="billing-diagram"
-                  >
-                    <title id="billing-diagram">
-                      Billing requests pass through business logic to stored
-                      transactions.
-                    </title>
-                    <rect x="5" y="8" width="130" height="52" rx="4" />
-                    <text x="70" y="39">Billing APIs</text>
-                    <path d="M135 34h20m-5-4 5 4-5 4" />
-                    <rect x="155" y="8" width="130" height="52" rx="4" />
-                    <text x="220" y="39">Billing logic</text>
-                    <path d="M285 34h20m-5-4 5 4-5 4" />
-                    <rect x="305" y="8" width="130" height="52" rx="4" />
-                    <text x="370" y="39">PostgreSQL</text>
-                  </svg>
-                  <figcaption>
-                    Conceptual flow · Billing requests pass through business
-                    logic to stored transactions.
-                  </figcaption>
-                </figure>
+                <div class="project-stack">
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/java.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Java
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/spring.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Spring Boot
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/postgresql.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    PostgreSQL
+                  </span>
+                </div>
+                <details class="case-details">
+                  <summary>Read case study</summary>
+                  <dl>
+                    <dt>Problem</dt>
+                    <dd>
+                      Invoicing, payments, ledger, reporting, subscriptions and
+                      notifications needed a billing backend.
+                    </dd>
+                    <dt>What I built</dt>
+                    <dd>
+                      REST APIs covering billing and transaction workflows,
+                      including subscription renewals.
+                    </dd>
+
+                    <dt>Result</dt>
+                    <dd>30+ REST APIs; renewals automated for 300+ users.</dd>
+                  </dl>
+                  <figure class="architecture">
+                    <svg
+                      viewBox="0 0 440 68"
+                      role="img"
+                      aria-labelledby="billing-diagram"
+                    >
+                      <title id="billing-diagram">
+                        Billing requests pass through business logic to stored
+                        transactions.
+                      </title>
+                      <rect x="5" y="8" width="130" height="52" rx="4" />
+                      <text x="70" y="39">Billing APIs</text>
+                      <path d="M135 34h20m-5-4 5 4-5 4" />
+                      <rect x="155" y="8" width="130" height="52" rx="4" />
+                      <text x="220" y="39">Billing logic</text>
+                      <path d="M285 34h20m-5-4 5 4-5 4" />
+                      <rect x="305" y="8" width="130" height="52" rx="4" />
+                      <text x="370" y="39">PostgreSQL</text>
+                    </svg>
+                    <figcaption>
+                      Conceptual flow · Billing requests pass through business
+                      logic to stored transactions.
+                    </figcaption>
+                  </figure>
+                </details>
               </div>
             </article>
             <article class="project" aria-labelledby="agent-title">
@@ -601,73 +710,74 @@
                   I designed and built runtime tracing and testing tools to
                   inspect HTTP requests, SQL and service execution.
                 </p>
-                <dl>
-                  <dt>Problem</dt>
-                  <dd>
-                    Understanding runtime behaviour and investigating failures
-                    required execution-level visibility.
-                  </dd>
-                  <dt>What I built</dt>
-                  <dd>
-                    A Java agent for runtime tracing, file/code coverage,
-                    automated unit-test generation and LLM-based failure
-                    analysis.
-                  </dd>
-                  <dt>Stack</dt>
-                  <dd>
-                    <div class="project-stack">
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/java.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Java Agent
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/postgresql.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        PostgreSQL
-                      </span>
-                    </div>
-                  </dd>
-                  <dt>Result</dt>
-                  <dd>
-                    Runtime traces, coverage and generated unit tests support
-                    failure investigation.
-                  </dd>
-                </dl>
-                <figure class="architecture">
-                  <svg
-                    viewBox="0 0 440 68"
-                    role="img"
-                    aria-labelledby="agent-diagram"
-                  >
-                    <title id="agent-diagram">
-                      A Java agent captures runtime execution for testing and
+                <div class="project-stack">
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/java.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Java Agent
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/postgresql.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    PostgreSQL
+                  </span>
+                </div>
+                <details class="case-details">
+                  <summary>Read case study</summary>
+                  <dl>
+                    <dt>Problem</dt>
+                    <dd>
+                      Understanding runtime behaviour and investigating failures
+                      required execution-level visibility.
+                    </dd>
+                    <dt>What I built</dt>
+                    <dd>
+                      A Java agent for runtime tracing, file/code coverage,
+                      automated unit-test generation and LLM-based failure
                       analysis.
-                    </title>
-                    <rect x="5" y="8" width="130" height="52" rx="4" />
-                    <text x="70" y="39">Java runtime</text>
-                    <path d="M135 34h20m-5-4 5 4-5 4" />
-                    <rect x="155" y="8" width="130" height="52" rx="4" />
-                    <text x="220" y="39">Agent / traces</text>
-                    <path d="M285 34h20m-5-4 5 4-5 4" />
-                    <rect x="305" y="8" width="130" height="52" rx="4" />
-                    <text x="370" y="39">Analysis</text>
-                  </svg>
-                  <figcaption>
-                    Conceptual flow · A Java agent captures runtime execution
-                    for testing and analysis.
-                  </figcaption>
-                </figure>
+                    </dd>
+
+                    <dt>Result</dt>
+                    <dd>
+                      Runtime traces, coverage and generated unit tests support
+                      failure investigation.
+                    </dd>
+                  </dl>
+                  <figure class="architecture">
+                    <svg
+                      viewBox="0 0 440 68"
+                      role="img"
+                      aria-labelledby="agent-diagram"
+                    >
+                      <title id="agent-diagram">
+                        A Java agent captures runtime execution for testing and
+                        analysis.
+                      </title>
+                      <rect x="5" y="8" width="130" height="52" rx="4" />
+                      <text x="70" y="39">Java runtime</text>
+                      <path d="M135 34h20m-5-4 5 4-5 4" />
+                      <rect x="155" y="8" width="130" height="52" rx="4" />
+                      <text x="220" y="39">Agent / traces</text>
+                      <path d="M285 34h20m-5-4 5 4-5 4" />
+                      <rect x="305" y="8" width="130" height="52" rx="4" />
+                      <text x="370" y="39">Analysis</text>
+                    </svg>
+                    <figcaption>
+                      Conceptual flow · A Java agent captures runtime execution
+                      for testing and analysis.
+                    </figcaption>
+                  </figure>
+                </details>
               </div>
             </article>
             <div class="section-intro personal-work">
@@ -690,68 +800,70 @@
                   I designed and built reusable Java utilities and published
                   tstudio-libraries v1.0.2 on Maven Central.
                 </p>
-                <dl>
-                  <dt>Problem</dt>
-                  <dd>
-                    Java utility code can be packaged for reuse across projects.
-                  </dd>
-                  <dt>What I built</dt>
-                  <dd>
-                    A reusable Java utilities library distributed through Maven
-                    Central.
-                  </dd>
-                  <dt>Stack</dt>
-                  <dd>
-                    <div class="project-stack">
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/java.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Java
-                      </span>
-                      <span>
-                        <img
-                          class="tech-icon"
-                          src="./assets/icons/maven.svg"
-                          width="18"
-                          height="18"
-                          alt=""
-                          loading="lazy">
-                        Maven
-                      </span>
-                    </div>
-                  </dd>
-                  <dt>Result</dt>
-                  <dd>Version 1.0.2 published for public use.</dd>
-                </dl>
-                <figure class="architecture">
-                  <svg
-                    viewBox="0 0 440 68"
-                    role="img"
-                    aria-labelledby="tstudio-diagram"
-                  >
-                    <title id="tstudio-diagram">
-                      A Java project obtains the utilities library through Maven
-                      Central.
-                    </title>
-                    <rect x="5" y="8" width="130" height="52" rx="4" />
-                    <text x="70" y="39">Java project</text>
-                    <path d="M135 34h20m-5-4 5 4-5 4" />
-                    <rect x="155" y="8" width="130" height="52" rx="4" />
-                    <text x="220" y="39">Maven Central</text>
-                    <path d="M285 34h20m-5-4 5 4-5 4" />
-                    <rect x="305" y="8" width="130" height="52" rx="4" />
-                    <text x="370" y="39">Utilities</text>
-                  </svg>
-                  <figcaption>
-                    Conceptual flow · A Java project obtains the utilities
-                    library through Maven Central.
-                  </figcaption>
-                </figure>
+                <div class="project-stack">
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/java.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Java
+                  </span>
+                  <span>
+                    <img
+                      class="tech-icon"
+                      src="./assets/icons/maven.svg"
+                      width="18"
+                      height="18"
+                      alt=""
+                      loading="lazy">
+                    Maven
+                  </span>
+                </div>
+                <details class="case-details">
+                  <summary>Read case study</summary>
+                  <dl>
+                    <dt>Problem</dt>
+                    <dd>
+                      Java utility code can be packaged for reuse across
+                      projects.
+                    </dd>
+                    <dt>What I built</dt>
+                    <dd>
+                      A reusable Java utilities library distributed through
+                      Maven Central.
+                    </dd>
+
+                    <dt>Result</dt>
+                    <dd>Version 1.0.2 published for public use.</dd>
+                  </dl>
+                  <figure class="architecture">
+                    <svg
+                      viewBox="0 0 440 68"
+                      role="img"
+                      aria-labelledby="tstudio-diagram"
+                    >
+                      <title id="tstudio-diagram">
+                        A Java project obtains the utilities library through
+                        Maven Central.
+                      </title>
+                      <rect x="5" y="8" width="130" height="52" rx="4" />
+                      <text x="70" y="39">Java project</text>
+                      <path d="M135 34h20m-5-4 5 4-5 4" />
+                      <rect x="155" y="8" width="130" height="52" rx="4" />
+                      <text x="220" y="39">Maven Central</text>
+                      <path d="M285 34h20m-5-4 5 4-5 4" />
+                      <rect x="305" y="8" width="130" height="52" rx="4" />
+                      <text x="370" y="39">Utilities</text>
+                    </svg>
+                    <figcaption>
+                      Conceptual flow · A Java project obtains the utilities
+                      library through Maven Central.
+                    </figcaption>
+                  </figure>
+                </details>
                 <a
                   class="text-link"
                   href="https://central.sonatype.com/artifact/ai.suvir/tstudio-libraries"
@@ -771,7 +883,7 @@
             <p class="eyebrow">Career</p>
             <h2 id="experience-heading">Experience</h2>
           </div>
-          <div>
+          <div class="timeline">
             <article class="job">
               <div class="job-heading">
                 <h3>Software Engineer</h3>
@@ -997,36 +1109,46 @@
               <dd>30-day notice · Open to Hyderabad, Bengaluru and remote</dd>
             </dl>
             <div id="contact">
-              <h3>Contact</h3>
+              <p class="eyebrow">Let's connect</p>
+              <h3>Have a backend role in mind?</h3>
               <p class="contact-intro">
                 Hiring for a Java backend role? Get in touch.
               </p>
+              <p class="contact-availability">
+                30-day notice · Hyderabad, Bengaluru and remote
+              </p>
+              <div class="contact-actions">
+                <a
+                  class="button primary"
+                  href="mailto:dileepkumarpydi2610@gmail.com"
+                >
+                  Email me
+                </a>
+                <a
+                  class="button"
+                  href="https://www.linkedin.com/in/dileep-kumar-pydi-b41965239"
+                >
+                  LinkedIn
+                </a>
+                <a class="button" href="https://github.com/dileepkumar-pydi">
+                  GitHub
+                </a>
+                <button class="button copy-email" type="button" hidden>
+                  Copy email
+                </button>
+              </div>
               <a
-                class="contact-row"
+                class="email-address"
                 href="mailto:dileepkumarpydi2610@gmail.com"
               >
-                <span>Email</span>
-                <span class="contact-detail">
-                  dileepkumarpydi2610@gmail.com
-                </span>
+                dileepkumarpydi2610@gmail.com
               </a>
+              <p class="copy-status" role="status" aria-live="polite"></p>
               <a
-                class="contact-row"
-                href="https://www.linkedin.com/in/dileep-kumar-pydi-b41965239"
-              >
-                <span>LinkedIn</span>
-                <span class="contact-detail">Dileep Kumar Pydi</span>
-              </a>
-              <a class="contact-row" href="https://github.com/dileepkumar-pydi">
-                <span>GitHub</span>
-                <span class="contact-detail">@dileepkumar-pydi</span>
-              </a>
-              <a
-                class="contact-row"
+                class="text-link"
                 href="https://central.sonatype.com/artifact/ai.suvir/tstudio-libraries"
               >
-                <span>Maven Central</span>
-                <span class="contact-detail">tstudio-libraries</span>
+                tstudio-libraries on Maven Central
               </a>
             </div>
           </div>

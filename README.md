@@ -17,18 +17,21 @@ Open [localhost:8000](http://localhost:8000).
 - `index.html`: text, links, project diagrams and SEO metadata. Edit the visible content directly. Keep the Person JSON-LD and social metadata in sync with your details.
 - `styles.css`: dark palette, layout and responsive styles.
 - `app.js`: active navigation state.
-- `motion.js`: scroll reveals, animated impact counters and service topology effects. The settings at the top control timing and replay. Reduced-motion preferences disable animations.
+- `motion.js`: scroll reveals, animated impact counters and service topology effects. Reduced-motion preferences disable animations.
 - `assets/icons/`: local technology icons from [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0), with its license included.
 - `sitemap.xml` and `robots.txt`: discovery metadata for the GitHub Pages URL.
 
 Project diagrams are conceptual; private project source, endpoints and internal infrastructure are not published here. Only the personal open-source library has a public project link.
 
-## Before publishing
+## Included assets
 
-- TODO: Add `assets/Pydi_Dileep_Kumar_Resume.pdf`. The Download Resume button already points to this file. Remove the visible resume TODO from `index.html` once the PDF is in place, and remove its `aria-describedby="resume-todo"` reference.
-- TODO: Add `assets/og-image.png` (recommended 1200 × 630). Social metadata already references the full GitHub Pages URL. Remove the matching TODO comment after adding it.
+The Download Resume button uses `assets/Pydi_Dileep_Kumar_Resume.pdf`. Replace that file to update the resume. The social preview image is `assets/og-image.png`; Open Graph, Twitter and Person JSON-LD reference its absolute GitHub Pages URL.
 
-The resume link returns 404 until the PDF is added. Social image previews need the PNG. No phone number is published.
+Case studies use native `<details>` elements. They expand with a mouse or keyboard without JavaScript. Contribution summaries, stack chips and all case-study text are present in the HTML.
+
+The copy-email button appears when the Clipboard API is available; email, LinkedIn and GitHub links work without JavaScript. Every animated effect is under 400ms, with the service topology moving in short hops separated by pauses. Reduced-motion preferences show final counter values and disable motion. Navigation and the scroll progress indicator update on scroll.
+
+No phone number appears in the page text. The supplied resume PDF is available as a download.
 
 ## Check changes
 

@@ -15,6 +15,8 @@ function updateNavigation() {
     if (link.hash === `#${current}`) link.setAttribute("aria-current", "location");
     else link.removeAttribute("aria-current");
   }
+  const distance = document.documentElement.scrollHeight - innerHeight;
+  document.documentElement.style.setProperty("--scroll-progress", distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0);
   navigationFrame = null;
 }
 
@@ -24,4 +26,21 @@ function scheduleNavigation() {
 
 window.addEventListener("scroll", scheduleNavigation, { passive: true });
 window.addEventListener("resize", scheduleNavigation);
+document.querySelectorAll("details").forEach((details) => details.addEventListener("toggle", scheduleNavigation));
 updateNavigation();
+
+// Email links remain available when clipboard access or JavaScript is unavailable.
+const copyEmail = document.querySelector(".copy-email");
+const emailAddress = document.querySelector(".email-address");
+const copyStatus = document.querySelector(".copy-status");
+if (navigator.clipboard?.writeText) {
+  copyEmail.hidden = false;
+  copyEmail.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress.textContent.trim());
+      copyStatus.textContent = "Email copied.";
+    } catch {
+      copyStatus.textContent = "Could not copy. Select the email address above to copy it.";
+    }
+  });
+}
