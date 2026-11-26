@@ -54,7 +54,7 @@ Keep `robots.txt` in the repository for Pages to serve under `/portfolio/robots.
 
 ## Resume page
 
-`resume/index.html` embeds the supplied PDF and contains a plain HTML version of its content. Edit that page when you replace the PDF. Its styles are in `resume/resume.css`, with the shared theme loaded from `styles.css`.
+`resume/index.html` opens directly to a readable HTML resume: name, role, career highlights, experience, then the full supporting details. The original PDF is available from the sticky toolbar and an optional native disclosure at the bottom. Edit that page when you replace the PDF. Its styles are in `resume/resume.css`, with the shared theme loaded from `styles.css`.
 
 Preview it at `/resume/` while serving the repository root. Navigation, downloads, the stylesheet and image paths are relative so the page also works under `/portfolio/resume/`. Navigation and asset paths are relative. The canonical uses the full public URL because Lighthouse requires an absolute canonical for its SEO check. OG asset paths remain relative as requested; some social preview clients may require an absolute OG image URL.
 
