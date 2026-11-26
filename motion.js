@@ -1,4 +1,5 @@
-const motion = portfolio.motion;
+// Animation settings only; all portfolio content lives in index.html.
+const motion = { enabled: true, replay: true, duration: 650, stagger: 60 };
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (motion?.enabled && !reducedMotion.matches && "IntersectionObserver" in window) {
@@ -6,11 +7,10 @@ if (motion?.enabled && !reducedMotion.matches && "IntersectionObserver" in windo
   root.style.setProperty("--reveal-duration", `${motion.duration}ms`);
   root.classList.add("motion-enabled");
 
-  renderHeadline(true);
 
   const observer = new IntersectionObserver((entries) => {
     for (const { target, isIntersecting, intersectionRatio } of entries) {
-      if (isIntersecting && intersectionRatio >= 0.12) {
+      if (isIntersecting && intersectionRatio >= 0.05) {
         target.classList.remove("reveal-pending");
         target.classList.add("is-visible");
         // The sticky header stays visible; other elements can replay.
@@ -21,11 +21,9 @@ if (motion?.enabled && !reducedMotion.matches && "IntersectionObserver" in windo
         target.classList.add("reveal-pending");
       }
     }
-  }, { threshold: [0, 0.12] });
+  }, { threshold: [0, 0.05] });
 
   const revealGroups = [
-    ".header",
-    ".hero > div:first-child > *",
     ".topology",
     ".impact > .eyebrow",
     ".stat",
@@ -93,5 +91,35 @@ if (motion?.enabled && !reducedMotion.matches && "IntersectionObserver" in windo
     window.removeEventListener("scroll", scheduleProgress);
     window.removeEventListener("resize", scheduleProgress);
     cancelAnimationFrame(frame);
+  });
+}
+
+// The complete value remains available to assistive tech and without JavaScript.
+if (!reducedMotion.matches && "IntersectionObserver" in window) {
+  const activeCounters = new Map();
+  const counters = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (!isIntersecting) continue;
+      counters.unobserve(target);
+      const value = Number(target.dataset.count);
+      const start = performance.now();
+      const tick = (now) => {
+        const progress = reducedMotion.matches ? 1 : Math.min((now - start) / 800, 1);
+        target.textContent = Math.round(value * (1 - (1 - progress) ** 3));
+        if (progress < 1) activeCounters.set(target, requestAnimationFrame(tick));
+        else activeCounters.delete(target);
+      };
+      activeCounters.set(target, requestAnimationFrame(tick));
+    }
+  }, { threshold: 0.5 });
+  document.querySelectorAll("[data-count]").forEach((counter) => counters.observe(counter));
+  reducedMotion.addEventListener("change", ({ matches }) => {
+    if (!matches) return;
+    counters.disconnect();
+    for (const [target, frame] of activeCounters) {
+      cancelAnimationFrame(frame);
+      target.textContent = target.dataset.count;
+    }
+    activeCounters.clear();
   });
 }
